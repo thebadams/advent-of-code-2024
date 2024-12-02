@@ -1,5 +1,5 @@
 package day1
 
-func Solve() {
-	readFile("./day-1/test_input.txt")
+func Solve(input string) {
+	readFile(input)
 }
