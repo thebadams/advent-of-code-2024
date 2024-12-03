@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strings"
 )
 
 func readFile(path string) {
@@ -16,7 +17,8 @@ func readFile(path string) {
 
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
-		fmt.Println(scanner.Text())
+		result := strings.SplitAfter(scanner.Text(), " ")
+		fmt.Print(result)
 	}
 
 	if err := scanner.Err(); err != nil {
