@@ -7,10 +7,16 @@ import (
 
 func TestSolve(t *testing.T) {
 	fmt.Println("Testing Solve Function!")
-	result := Solve("./test_input.txt")
-	expected := 11
+	partOne, partTwo := Solve("./test_input.txt")
+	partOneExpected := 11
+	partTwoExpected := 31
 
-	if result != expected {
-		t.Errorf("Solved for %d, expected to get %d", result, expected)
+	if partOne != partOneExpected {
+		t.Errorf("Solved for %d, expected to get %d", partOne, partOneExpected)
 	}
+
+	if partTwo != partTwoExpected {
+		t.Errorf("Solved for %d, expected to get %d", partTwo, partTwoExpected)
+	}
+
 }
