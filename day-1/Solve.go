@@ -11,6 +11,6 @@ func Solve(input string) int {
 	//get difference between data
 	distances := GetDifference(group1, group2)
 	// Sum up the data
-	solved := SumNums(distances)
-	return solved
+	partOne := SumNums(distances)
+	return partOne
 }
