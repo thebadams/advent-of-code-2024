@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
-	one := day1.Solve("./day-1/input.txt")
-	fmt.Printf("Result for day1: %d", one)
+	one, two := day1.Solve("./day-1/input.txt")
+	fmt.Printf("Result for day1 part one: %d", one)
+	fmt.Printf("Result for day1 part two: %d", two)
 }
