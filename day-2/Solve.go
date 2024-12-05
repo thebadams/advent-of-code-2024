@@ -1,7 +1,12 @@
 package day2
 
-func Solve() int {
-	//Count Safe Data
+func Solve(input string) int {
+	data := readFile(input)
+	safeData := []bool{}
+	for _, v := range data {
+		safe := AnalyzeData(v)
+		safeData = append(safeData, safe)
+	}
 
-	return 0
+	return CountSafe(safeData)
 }
