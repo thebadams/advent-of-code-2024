@@ -1,6 +1,6 @@
 package day2
 
-func AnalyzeData(data []int) bool {
+func AnalyzeData(data []int) (bool, int) {
 	decreases := 0
 	increases := 0
 	for i := 1; i < len(data); i++ {
@@ -14,15 +14,15 @@ func AnalyzeData(data []int) bool {
 			decreases = decreases + 1
 		}
 		if increases > 0 && decreases > 0 {
-			return false
+			return false, i
 		}
 		if diff > 3 || diff < -3 {
 
-			return false
+			return false, i
 		}
 		if diff == 0 {
-			return false
+			return false, i
 		}
 	}
-	return true
+	return true, 0
 }

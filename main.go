@@ -9,9 +9,10 @@ import (
 
 func main() {
 	d1p1, d1p2 := day1.Solve("./day-1/input.txt")
-	fmt.Printf("Result for day1 part one: %d", d1p1)
-	fmt.Printf("Result for day1 part two: %d", d1p2)
+	fmt.Printf("Result for day1 part one: %d\n", d1p1)
+	fmt.Printf("Result for day1 part two: %d\n", d1p2)
 
-	d2p1 := day2.Solve("./day-2/input.txt")
-	fmt.Printf("Result for day2 part one: %d", d2p1)
+	d2p1, d2p2 := day2.Solve("./day-2/input.txt")
+	fmt.Printf("Result for day2 part one: %d\n", d2p1)
+	fmt.Printf("Result for day2 part 2: %d\n", d2p2)
 }
