@@ -19,7 +19,6 @@ func readFile(path string) []string {
 		if err != nil {
 			fmt.Printf("Error Parsing %v", scanner.Text())
 		}
-		fmt.Println(scanner.Text())
 		data = append(data, scanner.Text())
 
 	}

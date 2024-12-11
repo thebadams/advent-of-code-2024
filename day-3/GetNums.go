@@ -14,7 +14,6 @@ func GetNums(input string) ([2]int, error) {
 	}
 	subStr2 := strings.Split(subStr[1], ")")
 	numStr := strings.Split(subStr2[0], ",")
-	fmt.Println(numStr)
 	var num1 int
 	var num2 int
 	for i, v := range numStr {
