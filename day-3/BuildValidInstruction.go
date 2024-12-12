@@ -6,7 +6,9 @@ import (
 
 func BuildValidInstruction(input string) []string {
 
-	strBuilder := strings.Builder{}
+	mul := strings.Builder{}
+	do := strings.Builder{}
+	not := strings.Builder{}
 	validInstructions := []string{}
 	chars := strings.Split(input, "")
 	if len(chars) < 8 {
@@ -14,113 +16,184 @@ func BuildValidInstruction(input string) []string {
 	}
 	//check length of chars must be length of "mul(x,x)" as minimum
 	for _, char := range chars {
-		switch strBuilder.Len() {
+		switch mul.Len() {
 		case 0:
 			if char == "m" {
-				strBuilder.WriteString(char)
+				mul.WriteString(char)
 			}
 		case 1:
 			if char == "u" {
-				strBuilder.WriteString(char)
+				mul.WriteString(char)
 			}
 			if char != "u" {
-				strBuilder.Reset()
+				mul.Reset()
 			}
 		case 2:
 			if char == "l" {
-				strBuilder.WriteString(char)
+				mul.WriteString(char)
 
 			}
 
 			if char != "l" {
-				strBuilder.Reset()
+				mul.Reset()
 			}
 		case 3:
 			if char == "(" {
-				strBuilder.WriteString(char)
+				mul.WriteString(char)
 			}
 
 			if char != "(" {
-				strBuilder.Reset()
+				mul.Reset()
 			}
 		case 4:
 			switch char {
 			case "1", "2", "3", "4", "5", "6", "7", "8", "9":
-				strBuilder.WriteString(char)
+				mul.WriteString(char)
 			default:
-				strBuilder.Reset()
+				mul.Reset()
 			}
 		case 5:
 			switch char {
 			case ",", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
-				strBuilder.WriteString(char)
+				mul.WriteString(char)
 			default:
-				strBuilder.Reset()
+				mul.Reset()
 			}
 
 		case 6:
 			switch char {
 			case ",", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
-				strBuilder.WriteString(char)
+				mul.WriteString(char)
 			default:
-				strBuilder.Reset()
+				mul.Reset()
 			}
 		case 7:
 
 			switch char {
 			case ")", ",", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
-				strBuilder.WriteString(char)
+				mul.WriteString(char)
 				if char == ")" {
-					validInstructions = append(validInstructions, strBuilder.String())
-					strBuilder.Reset()
+					validInstructions = append(validInstructions, mul.String())
+					mul.Reset()
 				}
 			default:
-				strBuilder.Reset()
+				mul.Reset()
 			}
 		case 8:
 			switch char {
 			case ")", ",", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
-				strBuilder.WriteString(char)
+				mul.WriteString(char)
 				if char == ")" {
-					validInstructions = append(validInstructions, strBuilder.String())
-					strBuilder.Reset()
+					validInstructions = append(validInstructions, mul.String())
+					mul.Reset()
 				}
 			default:
-				strBuilder.Reset()
+				mul.Reset()
 			}
 		case 9:
 			switch char {
 			case ")", ",", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
-				strBuilder.WriteString(char)
+				mul.WriteString(char)
 				if char == ")" {
-					validInstructions = append(validInstructions, strBuilder.String())
-					strBuilder.Reset()
+					validInstructions = append(validInstructions, mul.String())
+					mul.Reset()
 				}
 			default:
-				strBuilder.Reset()
+				mul.Reset()
 			}
 		case 10:
 			switch char {
 			case ")", ",", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
-				strBuilder.WriteString(char)
+				mul.WriteString(char)
 				if char == ")" {
-					validInstructions = append(validInstructions, strBuilder.String())
-					strBuilder.Reset()
+					validInstructions = append(validInstructions, mul.String())
+					mul.Reset()
 				}
 			default:
-				strBuilder.Reset()
+				mul.Reset()
 			}
 		case 11:
 			switch char {
 			case ")", ",", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
-				strBuilder.WriteString(char)
+				mul.WriteString(char)
 				if char == ")" {
-					validInstructions = append(validInstructions, strBuilder.String())
-					strBuilder.Reset()
+					validInstructions = append(validInstructions, mul.String())
+					mul.Reset()
 				}
 			default:
-				strBuilder.Reset()
+				mul.Reset()
 			}
+		}
+		switch do.Len() {
+		case 0:
+			if char == "d" {
+				do.WriteString(char)
+			}
+		case 1:
+			if char == "o" {
+				do.WriteString(char)
+			} else {
+				do.Reset()
+			}
+
+		case 2:
+			if char == "(" {
+				do.WriteString(char)
+			} else {
+				do.Reset()
+			}
+		case 3:
+			if char == ")" {
+				do.WriteString(char)
+				validInstructions = append(validInstructions, do.String())
+			} else {
+				do.Reset()
+			}
+		}
+
+		switch not.Len() {
+		case 0:
+			if char == "d" {
+				not.WriteString(char)
+			}
+		case 1:
+			if char == "o" {
+				not.WriteString(char)
+			} else {
+				not.Reset()
+			}
+		case 2:
+			if char == "n" {
+				not.WriteString(char)
+			} else {
+				not.Reset()
+			}
+		case 3:
+			if char == "'" {
+				not.WriteString(char)
+			} else {
+				not.Reset()
+			}
+		case 4:
+			if char == "t" {
+				not.WriteString(char)
+			} else {
+				not.Reset()
+			}
+		case 5:
+			if char == "(" {
+				not.WriteString(char)
+			} else {
+				not.Reset()
+			}
+		case 6:
+			if char == ")" {
+				not.WriteString(char)
+				validInstructions = append(validInstructions, not.String())
+			} else {
+				not.Reset()
+			}
+
 		}
 
 	}
