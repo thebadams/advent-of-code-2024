@@ -17,6 +17,8 @@ func main() {
 	fmt.Printf("Result for day2 part one: %d\n", d2p1)
 	fmt.Printf("Result for day2 part 2: %d\n", d2p2)
 
-	d3p1 := day3.Solve("./day-3/input.txt")
+	d3p1, d3p2 := day3.Solve("./day-3/input.txt")
 	fmt.Printf("result for day3 part 1: %d\n", d3p1)
+	fmt.Printf("result for day3 part 2: %d\n", d3p2)
+
 }
